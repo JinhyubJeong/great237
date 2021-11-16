@@ -12,7 +12,7 @@ const Wrap = styled.div`
         position: relative;
         font-size: ${theme.fontSizes.f42};
         text-align: center;
-        margin-bottom: 8rem;
+        margin-bottom: 5rem;
         :before {
           position: absolute;
           top: 2rem;
