@@ -10,7 +10,7 @@ const colors = {
   grayC: '#cccccc',
   grayD: '#dddddd',
   grayE: '#eeeeee', //	disabled text color
-  bgcolor: '#F8FAFF',
+  bgcolor: '#f5f5f5',
   white: '#ffffff',
 };
 

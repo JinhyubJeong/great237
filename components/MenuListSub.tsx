@@ -1,19 +1,53 @@
 import type { NextPage } from 'next';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Wrap = styled.dt``;
+const Wrap = styled.div`
+  ${({ theme }) => {
+    return css`
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      > div {
+        p {
+          :first-child {
+            font-size: ${theme.fontSizes.f24};
+            margin-bottom: 0.8rem;
+            span {
+              vertical-align: middle;
+              font-size: ${theme.fontSizes.f12};
+              color: ${theme.colors.gray8};
+            }
+          }
+          :last-child {
+            color: ${theme.colors.gray8};
+            line-height: 2rem;
+          }
+        }
+      }
+      > p {
+        font-size: ${theme.fontSizes.f24};
+      }
+    `;
+  }}
+`;
 export type MenuListSubProps = {
-  text: {
-    id: number;
+  submenu: {
+    name: string;
+    value: number;
+    list: string;
   };
 };
 
-const MenuListSub: NextPage = () => {
+const MenuListSub: NextPage<MenuListSubProps> = ({ submenu }) => {
   return (
     <Wrap>
-      <span></span>
-      <span></span>
-      <span></span>
+      <div>
+        <p dangerouslySetInnerHTML={{ __html: submenu.name }}></p>
+        <p>{submenu.list}</p>
+      </div>
+      <p>{submenu.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
     </Wrap>
   );
 };
