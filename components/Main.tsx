@@ -1,39 +1,45 @@
 import type { NextPage } from 'next';
 import styled, { css } from 'styled-components';
 import MenuList from './MenuList';
+import Image from 'next/image';
+import logo_color from '../public/logo_color.svg';
+import logo_white from '../public/logo_white.svg';
+import great_kor from '../public/great_kor.svg';
+import menu from '../public/menu.svg';
 
 const Wrap = styled.div`
   ${({ theme }) => {
     return css`
       width: 64rem;
       margin: 0 auto;
+      position: relative;
+      background-color: ${theme.colors.white};
+      section {
+        padding: 0 2rem;
+      }
       section:first-child {
-        width: 100%;
-        height: 55rem;
         text-align: center;
-        background: no-repeat url(/img/img01.jpg);
-        background-size: cover;
         h1 {
-          background: linear-gradient(
-            360deg,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.8) 100%
-          );
-          img {
-            padding: 1.5rem 0;
-            width: 25%;
-            filter: drop-shadow(2px 2px rgba(0, 0, 0, 0.6));
-          }
+          padding: 1.5rem 0;
+        }
+        span {
+          display: block;
+          width: 100%;
+          height: 55rem;
+
+          background: no-repeat url('/img01.jpg');
+          background-size: cover;
+          border-radius: 3rem;
         }
       }
       > section:nth-child(2) {
         text-align: right;
-        padding: 0 2rem;
-        img {
-          margin-top: -3rem;
-          width: 60%;
-          margin-bottom: 6rem;
+
+        div:first-child {
+          margin-top: -2.5rem;
+          margin-bottom: 2rem;
         }
+
         > ul {
           margin-bottom: 6rem;
           > li {
@@ -63,37 +69,47 @@ const Wrap = styled.div`
       }
       > section:nth-child(3) {
         margin-bottom: 15rem;
-      }
-
-      > section:nth-child(4) {
-        text-align: right;
-        > div:first-child {
-          width: 100%;
-          height: 40rem;
-          background: no-repeat url(/img/img02.jpg);
-          background-size: cover;
-          > img {
-            padding: 0 2rem;
-            width: 30%;
-            margin-top: -8rem;
-          }
+        iframe {
+          border-radius: 3rem;
         }
       }
-      > section:nth-child(5) {
-        background-color: ${theme.colors.bgcolor};
+      > section:nth-child(4) {
+        text-align: right;
+        position: relative;
+        div:first-child {
+          margin-bottom: -2rem;
+        }
+        > div:last-child {
+          width: 100%;
+          height: 40rem;
+          background: no-repeat url('/img02.jpg');
+          background-size: cover;
+          border-radius: 3rem;
+        }
+      }
+      /* section:nth-child(6) 하위 컨포넌트에서 스타일 */
+      > section:nth-child(6) {
+        position: relative;
+        background-color: ${theme.colors.gray3};
         text-align: center;
-        img {
-          width: 40%;
-          margin: 4rem 0 2rem 0;
+        color: ${theme.colors.white};
+        font-weight: 100;
+        div {
+          padding-top: 2rem;
+          img {
+            width: 40%;
+            margin: 4rem 0 2rem 0;
+          }
         }
         ul {
           padding-bottom: 4rem;
+          opacity: 0.5;
           li {
             font-size: ${theme.fontSizes.f18};
             line-height: 3rem;
-            color: ${theme.colors.gray8};
             a {
               margin-left: 0.5rem;
+              color: ${theme.colors.white};
             }
           }
         }
@@ -202,25 +218,25 @@ const Main: NextPage = () => {
           id: 1,
           name: '버섯 크림 리조토',
           value: 18000,
-          list: '새송이, 양송이, 느타리, 표고버섯과 파마산치즈가 들어간 고소한 크림 리소토',
+          list: '새송이, 양송이, 느타리, 표고버섯과 파마산치즈가 들어간 고소한 크림 리조토',
         },
         {
           id: 2,
           name: '버섯 토마토 리조토',
           value: 17000,
-          list: '새송이, 양송이, 느타리, 표고버섯과 파마산치즈가 들어간 상큼한 토마토 리소토',
+          list: '새송이, 양송이, 느타리, 표고버섯과 파마산치즈가 들어간 상큼한 토마토 리조토',
         },
         {
           id: 3,
           name: '해산물 크림 리조토',
           value: 19000,
-          list: '꽃게, 새우, 쭈구미, 오징어, 홍합이 들어간 고소한 크림 리소토',
+          list: '꽃게, 새우, 쭈구미, 오징어, 홍합이 들어간 고소한 크림 리조토',
         },
         {
           id: 4,
           name: '해산물 토마토 리조토',
           value: 18000,
-          list: '꽃게, 새우, 쭈구미, 오징어, 홍합이 들어간 상큼한 토마토 리소토',
+          list: '꽃게, 새우, 쭈구미, 오징어, 홍합이 들어간 상큼한 토마토 리조토',
         },
       ],
     },
@@ -284,75 +300,75 @@ const Main: NextPage = () => {
       menus: [
         {
           id: 1,
-          name: '🇨🇱 그래잇 하우스 와인 잔',
+          name: '<img src="/cl.png" alt="" /> 그래잇 하우스 와인 잔',
           value: 10000,
-          list: '          Carmen Tolten Cabernet Sauvignon / Glass / CHILE',
+          list: '　　 Carmen Tolten Cabernet Sauvignon / Glass / CHILE',
         },
         {
           id: 2,
-          name: '     그래잇 하우스 와인 병',
+          name: '　 그래잇 하우스 와인 병',
           value: 28000,
-          list: '          Carmen Tolten Cabernet Sauvignon / Bottle / CHILE',
+          list: '　　 Carmen Tolten Cabernet Sauvignon / Bottle / CHILE',
         },
         {
           id: 3,
-          name: '     얄리 리저브 까르메네르',
+          name: '　 얄리 리저브 까르메네르',
           value: 45000,
-          list: '          Yali Reserve Carmenere / CHILE',
+          list: '　　 Yali Reserve Carmenere / CHILE',
         },
         {
           id: 4,
-          name: '     발디비에소 싱글빈야드 까베르네 프랑',
+          name: '　 발디비에소 싱글빈야드 까베르네 프랑',
           value: 61000,
-          list: '          Valdivieso, Single Vineyard Cabernet Franc Reserve / CHILE',
+          list: '　　 Valdivieso, Single Vineyard Cabernet Franc Reserve / CHILE',
         },
         {
           id: 5,
-          name: '     몬테스 알파',
+          name: '　 몬테스 알파',
           value: 68000,
-          list: '          Montes Alpha / CHILE',
+          list: '　　 Montes Alpha / CHILE',
         },
         {
           id: 6,
-          name: '🇮🇹 엘레트라 프리미티보 - 니그로아마로',
+          name: '<img src="/it.png" alt="" /> 엘레트라 프리미티보 - 니그로아마로',
           value: 68000,
-          list: '          Elettra Primitivo - Negroamaro / ITALIA \n          2020 루카마로니 99점 만점 / 2020년 Best 이탈리안 와인 선정',
+          list: '　　 Elettra Primitivo - Negroamaro / ITALIA \n　　 2020 루카마로니 99점 만점 / 2020년 Best 이탈리안 와인 선정',
         },
         {
           id: 7,
-          name: '     프리미티보 아파시멘토',
+          name: '　 프리미티보 아파시멘토',
           value: 79000,
-          list: '          Primitivo Appassimento / RONCO DI SASSI / ITALIA \n          2017~2020 루카마로니4년연속 99점 만점',
+          list: '　　 Primitivo Appassimento / RONCO DI SASSI / ITALIA \n　　 2017~2020 루카마로니4년연속 99점 만점',
         },
         {
           id: 8,
-          name: '     프리미티보 디 만두리아 리세르바',
+          name: '　 프리미티보 디 만두리아 리세르바',
           value: 89000,
-          list: '          Primitivo di Manduria Riserva / RONCO DI SASSI / ITALIA \n          2020 루카마로니 98점',
+          list: '　　 Primitivo di Manduria Riserva / RONCO DI SASSI / ITALIA \n　　 2020 루카마로니 98점',
         },
         {
           id: 9,
-          name: '🇪🇸 돈멘도 그란 리세르바',
+          name: '<img src="/es.png" alt="" /> 돈멘도 그란 리세르바',
           value: 68000,
-          list: '          Don Mendo Gran Reserva / SPAIN',
+          list: '　　 Don Mendo Gran Reserva / SPAIN',
         },
         {
           id: 10,
-          name: '     까사 로호 무쏘 피노누아',
+          name: '　 까사 로호 무쏘 피노누아',
           value: 48000,
-          list: '          Casa Rojo Musso Pinot Noir / SPAIN',
+          list: '　　 Casa Rojo Musso Pinot Noir / SPAIN',
         },
         {
           id: 11,
-          name: '🇵🇹 파시스 불독',
+          name: '<img src="/pt.png" alt="" /> 파시스 불독',
           value: 48000,
-          list: '          Paxis, Bulldog / PORTUGAL',
+          list: '　　 Paxis, Bulldog / PORTUGAL',
         },
         {
           id: 12,
-          name: '🇳🇿 기센 말보로 피노누아',
+          name: '<img src="/nz.png" alt="" /> 기센 말보로 피노누아',
           value: 85000,
-          list: '          Giesen, The Brothers Marlborough Pinot Noir / NEW ZEALAND',
+          list: '　　 Giesen, The Brothers Marlborough Pinot Noir / NEW ZEALAND',
         },
       ],
     },
@@ -362,45 +378,45 @@ const Main: NextPage = () => {
       menus: [
         {
           id: 1,
-          name: '🇨🇱 그래잇 하우스 와인 잔',
+          name: '<img src="/cl.png" alt="" /> 그래잇 하우스 와인 잔',
           value: 10000,
-          list: '          Carmen Tolten Cabernet Sauvignon / Glass / CHILE',
+          list: '　　 Carmen Tolten Cabernet Sauvignon / Glass / CHILE',
         },
         {
           id: 2,
-          name: '     그래잇 하우스 와인 병',
+          name: '　 그래잇 하우스 와인 병',
           value: 28000,
-          list: '          Carmen Tolten Cabernet Sauvignon / Bottle / CHILE',
+          list: '　　 Carmen Tolten Cabernet Sauvignon / Bottle / CHILE',
         },
         {
           id: 3,
-          name: '🇩🇪 레오나르드 커리쉬 슈페트레제',
+          name: '<img src="/de.png" alt="" /> 레오나르드 커리쉬 슈페트레제',
           value: 39000,
-          list: '          Leonard Kreusch Spatlese / GERMANY',
+          list: '　　 Leonard Kreusch Spatlese / GERMANY',
         },
         {
           id: 4,
-          name: '🇫🇷 더 롱 독 로제',
+          name: '<img src="/fr.png" alt="" /> 더 롱 독 로제',
           value: 47000,
-          list: '          The Long Dog Rose / FRANCE',
+          list: '　　 The Long Dog Rose / FRANCE',
         },
         {
           id: 5,
-          name: '      떼땡져 리저브 브륏',
+          name: '　 떼땡져 리저브 브륏',
           value: 139000,
-          list: '           Taittinger,  Reserve Brut / Champagne / FRANCE',
+          list: '　　 Taittinger,  Reserve Brut / Champagne / FRANCE',
         },
         {
           id: 6,
-          name: '🇦🇷 안델루나 1300 토론테스',
+          name: '<img src="/ar.png" alt="" /> 안델루나 1300 토론테스',
           value: 68000,
-          list: '          Andeluna, 1300 Torrontes / ARGENTINA',
+          list: '　　 Andeluna, 1300 Torrontes / ARGENTINA',
         },
         {
           id: 7,
-          name: '🇵🇹 아니무스 비뉴 베르데',
+          name: '<img src="/pt.png" alt="" /> 아니무스 비뉴 베르데',
           value: 42000,
-          list: '          Animus Vinho Verde / PORTUGAL',
+          list: '　　 Animus Vinho Verde / PORTUGAL',
         },
       ],
     },
@@ -410,11 +426,19 @@ const Main: NextPage = () => {
     <Wrap>
       <section>
         <h1>
-          <img src="/img/logo_white.svg" alt="그래잇로고" />
+          <Image src={logo_color} width={200} height={70} alt="그래잇로고" />
         </h1>
+        <span></span>
       </section>
       <section>
-        <img src="/img/great_kor.svg" alt="한글그래잇로고" />
+        <div>
+          <Image
+            src={great_kor}
+            width={300}
+            height={100}
+            alt="한글그래잇로고"
+          />
+        </div>
         <ul>
           <li>
             서울 강남구 논현동 23-7
@@ -434,21 +458,27 @@ const Main: NextPage = () => {
       <section>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1934.669087969163!2d127.02171592487902!3d37.51406216669902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3e8bb7607bf%3A0x3a0a022b0898995f!2z6re466CI7J6H7J207IK87Lmg!5e0!3m2!1sko!2skr!4v1636949504003!5m2!1sko!2skr"
-          width="640"
+          width="600"
           height="450"
           loading="lazy"
         ></iframe>
       </section>
+
       <section>
         <div>
-          <img src="/img/menu.svg" alt="메뉴" />
+          <Image src={menu} width={200} height={100} alt="메뉴" />
         </div>
+        <div></div>
+      </section>
+      <section>
         {content.map((menu) => (
           <MenuList key={menu.id} menu={menu} />
         ))}
       </section>
       <section>
-        <img src="/img/logo_color.svg" alt="그래잇로고" />
+        <div>
+          <Image src={logo_white} width={180} height={70} alt="그래잇로고" />
+        </div>
         <ul>
           <li>
             서울 강남구 논현동 23-7 <br />

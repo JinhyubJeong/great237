@@ -5,7 +5,6 @@ import MenuListSub from './MenuListSub';
 const Wrap = styled.div`
   ${({ theme }) => {
     return css`
-      padding: 0 2rem;
       margin: 15rem 0;
       white-space: pre-wrap;
       h3 {

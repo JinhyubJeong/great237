@@ -12,12 +12,15 @@ const Wrap = styled.div`
       > div {
         p {
           :first-child {
+            display: flex;
+            align-items: center;
             font-size: ${theme.fontSizes.f24};
             margin-bottom: 0.8rem;
             span {
               vertical-align: middle;
-              font-size: ${theme.fontSizes.f12};
+              font-size: ${theme.fontSizes.f18};
               color: ${theme.colors.gray8};
+              font-weight: 100;
             }
           }
           :last-child {
