@@ -26,7 +26,6 @@ const Wrap = styled.div`
           display: block;
           width: 100%;
           height: 55rem;
-
           background: no-repeat url('/img01.jpg');
           background-size: cover;
           border-radius: 3rem;
@@ -36,7 +35,7 @@ const Wrap = styled.div`
         text-align: right;
 
         div:first-child {
-          margin-top: -2.5rem;
+          margin-top: 4rem;
           margin-bottom: 2rem;
         }
 
@@ -77,7 +76,7 @@ const Wrap = styled.div`
         text-align: right;
         position: relative;
         div:first-child {
-          margin-bottom: -2rem;
+          margin-bottom: 1rem;
         }
         > div:last-child {
           width: 100%;
@@ -466,7 +465,7 @@ const Main: NextPage = () => {
 
       <section>
         <div>
-          <Image src={menu} width={200} height={100} alt="메뉴" />
+          <Image src={menu} width={190} height={90} alt="메뉴" />
         </div>
         <div></div>
       </section>

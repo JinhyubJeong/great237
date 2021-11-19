@@ -25,7 +25,7 @@ const Wrap = styled.div`
           }
           :last-child {
             color: ${theme.colors.gray8};
-            line-height: 2rem;
+            line-height: 2.2rem;
           }
         }
       }
