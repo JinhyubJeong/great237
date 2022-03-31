@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:url" content="http://www.Great237.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="그레잇237" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
